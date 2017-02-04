@@ -1,11 +1,10 @@
 ---
-title:  {{ title }}
-date: {{ date }}
+title: MailServer
+toc: 1
+date: 2017-02-04 15:47:55
 tags:
 categories:
-permalink: 
-toc: 1
-
+permalink:
 ---
 **原因**：
 **说明**：

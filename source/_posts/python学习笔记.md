@@ -2,11 +2,10 @@
 title: python学习笔记
 date: 2017-02-04 00:48:58
 tags:
-- Mac Apps
+- Python
 categories:
-- 生活娱乐
+- 自主学习
 - 随笔
-- 新年快乐
 permalink: Swork
 toc: 1
 
