@@ -17,5 +17,5 @@ permalink:
 
 
 
-
+### nginx反向代理负载均衡
 [代理方式](https://foofish.net/proxy-and-reverse-proxy.html)
