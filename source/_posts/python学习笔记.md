@@ -606,11 +606,11 @@ def fact_iter(num, product):
 ---
 
 ### 迭代
-- 在python中，迭代是通过`for ... in ... :`实现的，循环的抽象程度较高，只要作用于一个可迭代的对象，for就可以正常运行，通过`collection`模块的`lterable`类型判断对象是否可以迭代：
+- 在python中，迭代是通过`for ... in ... :`实现的，循环的抽象程度较高，只要作用于一个可迭代的对象，for就可以正常运行，通过`collection`模块的`Iterable`类型判断对象是否可以迭代：
 
 ```python
->>> from collection import lterable
->>> isinstance('abc',lterable)
+>>> from collection import Iterable
+>>> isinstance('abc',Iterable)
 True
 ```
 - 因为dict的存储不是按照list的方式顺序排列，所以，迭代出的结果顺序很可能不一样。默认情况下，dict迭代的是key。如果要迭代value，可以用`for value in d.values()`，如果要同时迭代key和value，可以用`for k, v in d.items()`。
@@ -757,6 +757,25 @@ Traceback (most recent call last):
 StopIteration
 ```
 - 可以看出odd不是普通函数而是generator，执行过程中遇到yield就不断中断，下次又继续执行。
-- 
+- 杨辉三角代码：
+
+```python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#杨辉三角
+def triangles(max):
+    L = [1]
+    while len(L)<=max:
+        yield L
+        L.append(0)
+        L = [L[i - 1] + L[i] for i in range(len(L))]
+n = input('please input the max num : ')
+for x in triangles(int(n)):
+    print(x)
+```
+
+
+
+
 
 
