@@ -791,7 +791,7 @@ sudo apt-get install python-certbot-apache -t jessie-backports
 ```
 certbot --apache
 ```
-- 会弹出窗口，填写你的域名，选择http自动跳转为https。成功后打开网站即可验证是否成功。
+- 会弹出窗口，填写你的域名，选择http自动跳转为https。成功后打开网站即可验证是否成功。.
 
 
 
