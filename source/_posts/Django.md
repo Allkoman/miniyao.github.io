@@ -1,7 +1,7 @@
 ---
 title: Django
 toc: 1
-date: 2017-02-15 13:23:33
+date: 2017-02-17 13:23:33
 tags:
 - Python
 - Django
@@ -9,7 +9,7 @@ categories:
 - 自主学习
 permalink:
 ---
-**原因**：2017年2月15日 星期四 学习Django加深python理解
+**原因**：2017年2月17日 星期六 学习Django加深python理解
 **说明**：自主学习，兴趣爱好，操作系统为mac
 **状态**：updating 2.17
 <!-- more -->
