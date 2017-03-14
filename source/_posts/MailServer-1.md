@@ -7,14 +7,13 @@ tags:
 categories:
 - postfix
 - dovecot
-- openldap
+- mysql
 permalink:
 ---
 **原因**：2017年2月27日 星期一 随笔记录。
 **说明**：记录配置安装过程，迭代轮次为1。
 
--------------------
-[TOC]
+---
 
 <!-- more -->
 
@@ -344,8 +343,8 @@ service postfix restart
 ```
 ---
 
-### 配置Dovecot
-- 备份Dovecot配置文件：
+### 配置dovecot
+- 备份dovecot配置文件：
 
 ```
 cp /etc/dovecot/dovecot.conf /etc/dovecot/dovecot.conf.orig
