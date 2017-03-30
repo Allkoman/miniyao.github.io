@@ -26,8 +26,8 @@ toc: 1
 ### 安装python
 
 - mac下安装python3，通过homebrew进行安装，即：`brew install python3`
-- 为以后方便使用，在~/.zshrc 内添加alias py='python3'
-- 使用python3指令只需输入'py'即可。
+- 为以后方便使用，在~/.zshrc 内添加`alias py='python3`
+- 使用python3指令只需输入`py`即可。
 
 ---
 

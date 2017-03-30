@@ -93,7 +93,13 @@ CREATE TABLE forwardings (source varchar(80) NOT NULL, destination TEXT NOT NULL
 - 创建users表单：
 
 ```
-CREATE TABLE users (email varchar(80) NOT NULL, password varchar(20) NOT NULL, PRIMARY KEY (email) );
+CREATE TABLE `users` (
+  `mailuser_id` int(11) NOT NULL auto_increment,
+  `password` varchar(106) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  PRIMARY KEY (`mailuser_id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
 - 创建transports表单：
 
@@ -106,7 +112,7 @@ quit
 ```
 USE mail;
 INSERT INTO domains (domain) VALUES ('example.com');
-INSERT INTO users (email, password) VALUES ('sales@example.com', ENCRYPT('password', CONCAT('$6$', SUBSTRING(SHA(RAND()), -16))));
+INSERT INTO users (mailuser_id.email, password) VALUES (1,'sales@example.com', ENCRYPT('password', CONCAT('$6$', SUBSTRING(SHA(RAND()), -16))));
 quit
 ```
 - 将MariaDB绑定到`localhost`，编辑文件`/etc/my.cnf`，添加：
@@ -368,27 +374,40 @@ yum install mutt
 ![mailbox](http://okj8snz5g.bkt.clouddn.com/blog/mailbox.png)
 
 ---
-### Centos部署Apache、PHP
-- centos相对于debian内部集成apache，只需安装`httpd`修改参数即可使用apache，php直接安装即可：
+### Centos部署Apache
+- centos相对于debian内部集成apache，只需安装`httpd`修改参数即可使用apache：
 
 ```
-yum install httpd php
-yum install php-xml
+yum install httpd
 ```
 - 启动httpd:
 
 ```
 service start httpd
 ```
-- vi /var/www/html/info.php，编写info文件如下，在浏览器输入centos机器的ip/info.php，出现下图即为成功解析。
-
-```
-<?php
-phpinfo;
-?>
-```
-![mailbox](http://okj8snz5g.bkt.clouddn.com/blog/phpinfo.png)
 - 编辑`/etc/httpd/conf/httpd.conf`。可修改默认root路径为`/var/www/rainloop`，这里是为了后续邮箱客户端做准备。
 
 ---
-### rainloop部署
+
+### Centos安装PHP7
+- 经过一天的调试、发现php5部分功能特征不能满足需求，故而改为使用php7，首先删除本地php5：
+
+```
+yum remove php* php-common
+```
+- 添加rpm源：
+
+```
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm  
+```
+- 安装php7以及需要的模块：
+
+```
+yum install php70w php70w-pdo php70w-mysql php70w-xml
+```
+- 在apache2的directoy目录下，`vi info.php`，写入`<?php   phpinfo();  ?>`，在浏览器输入ip/info.php，查看到php信息即可证明安装成功。
+
+## rainloop部署
+- 下载[rainloop](http://www.rainloop.net)的压缩文件，解压到`apache`的解析目录，一般为/var/www/html。可在`/etc/apache2/conf/httpd.conf`文件中进行查看，具体为`Directory`项目后的路径。其余安装方法参见[MailServer-1](http://minichao.me/2017/02/27/MailServer-1/)。
+- 将rainloop解压到apache解析目录即可解析，在浏览器中打开即可DIY
+- 插件的配置与修改：为实现修改密码等功能，在`/var/www/rainloop/data/_data_/_default_/plugin`下添加开源or自定义插件，进入管理界面即可开启关闭插件，自定义插件参数等。

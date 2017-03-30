@@ -19,8 +19,9 @@ permalink:
 
 ## 简介
 第一轮迭代采用阿里云debian 8系统作为服务器，域名为miniyao.net。使用postfix、dovecot、mysql配置安装邮箱服务器
+<div align=center>
 ![mail_stt](http://okj8snz5g.bkt.clouddn.com/blog/mail_server.jpg)
-
+</div>
 ---
 
 ## 服务端
@@ -647,6 +648,11 @@ quit //退出telnet与邮箱服务器连接
 
 ```
 sudo apt-get update && sudo apt-get upgrade
+```
+- 安装apache2
+
+```
+apt-get install apache2
 ```
 - 编辑`/etc/apache2/apache2.conf`文件，对应代码修改为如下：
 
