@@ -57,8 +57,7 @@ ln -s /mediawiki-1.28.0 mediawiki
 
 ---
 
-### Plugin
-#### Html2Wiki
+### Html2Wiki
 
 - 下载[Html2Wiki](https://www.mediawiki.org/wiki/Special:ExtensionDistributor/Html2Wiki)：
 - 将下载后的插件解压到mediawiki源码文件夹中的extensions文件夹下，我这里路径是`/Project/mediawiki-1.28.0/extensions`。
@@ -67,6 +66,7 @@ ln -s /mediawiki-1.28.0 mediawiki
 tar -xzf Html2Wiki-REL1_28-a494d06.tar.gz -C /Project/mediawiki-1.28.0/extensions
 ```
 - 在MediaWiki的配置文件`LocalSettings.php`末尾插入：
+
 ```
 require_once "$IP/extensions/Html2Wiki/Html2Wiki.php";
 $wgNamespacesWithSubpages[NS_MAIN] = true; # has to be defined BEFORE the require_once!
@@ -77,6 +77,7 @@ $wgNamespacesWithSubpages[NS_MAIN] = true; # has to be defined BEFORE the requir
 cd /mediawiki-1.28.0/extensions/Html2Wiki
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer //这一步为改为全局，可选
+chmod +x /usr/local/bin/composer //全局给予权限
 php composer.phar install
 composer install //这一步为全局安装composer.phar的操作
 ```
@@ -86,6 +87,8 @@ composer install //这一步为全局安装composer.phar的操作
 ![](http://okj8snz5g.bkt.clouddn.com/blog/beforehtmll.png)
 ![](http://okj8snz5g.bkt.clouddn.com/blog/afterhtml.png)
 - 对比前后多处import HTML content功能。
+
+---
 
 ### Google Translator
 - [Google Translator](https://www.mediawiki.org/wiki/Extension:Google_Translator)内有详细的介绍。
@@ -191,3 +194,51 @@ $messages['ru'] = array(
 
 ![](http://okj8snz5g.bkt.clouddn.com/blog/transen.png)
 ![](http://okj8snz5g.bkt.clouddn.com/blog/transcn.png)
+
+---
+### Semantic-mediawiki
+- [Semantic-mediawiki](https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki) (SMW) is a free, open-source extension to MediaWiki – the wiki software that powers Wikipedia – that lets you store and query data within the wiki's pages.Semantic MediaWiki is also a full-fledged framework, in conjunction with many spinoff extensions, that can turn a wiki into a powerful and flexible knowledge management system. All data created within SMW can easily be published via the Semantic Web, allowing other systems to use this data seamlessly.
+- [安装网址](https://www.semantic-mediawiki.org/wiki/Help:Installation/Using_Composer_with_MediaWiki_1.25%2B)，通过mediawiki-specialpage中的version版本信息与官网进行比对，进行插件版本的选择以及安装。我这里安装的mediawiki版本为1.28，插件版本为2.5
+- Semantic-mediawiki的composer安装方式，由于上文Html2Wiki部分全局安装了composer，这里只需直接使用即可。在LocalSettings.php所在根目录执行：
+
+```
+composer require mediawiki/semantic-media-wiki "~2.5" --update-no-dev
+```
+- 这一步将插件的版本信息导入到composer.json里，随后运行
+
+```
+composer update
+```
+- 这时`mediawiki/extensions`下就会被composer安装出`SemanticMediaWiki`的文件夹，进入该文件夹，输入`composer update`，更新安装依赖包文件。
+- 在根目录运行：
+
+```
+php maintenance/update.php //可能会提示需要composer update，
+```
+- 此时进入`extensions/SemanticMediaWiki/maintenance`文件夹，输入`php SMW_setup.php`用于将插件需要的数据库更新到本地数据库。
+- 此时回到mediawiki根目录，修改LocalSettins.php。添加一句：`enableSemantics( 'example.org',true);`。
+- 打开浏览器进入mediawiki，打开specialPage。发现如下图多出一项`Semantic Statistic`：
+![](http://okj8snz5g.bkt.clouddn.com/blog/sem.png)，在这一步我遇到了打开浏览器后cache报错问题，解决办法是运行`mediawiki/maintenance/ rebuildLocalisationCache.php`。
+- 如果打开页面不显示错误，仅仅是无法加载，请在LocalSettings.php后添加下述代码。
+```
+$wgShowExceptionDetails = true;
+$wgShowDBErrorBacktrace = true; 
+```
+- 点开该项无报错即可（我也就遇到过数据库报错，别的报错没有遇到过，如果遇到了并无援助能力）
+
+---
+- 下面进行Semantic的额外插件安装，用于多语言link，[网址](https://github.com/SemanticMediaWiki/SemanticInterlanguageLinks/blob/master/README.md)
+- 安装方式简单粗暴，在根目录的`composer.json`内的`require`中添加一句:
+
+```
+{
+    "require": {
+        "mediawiki/semantic-interlanguage-links": "~1.3"
+    }
+}
+```
+- 随后运行`composer update`即可。
+- 使用方式如下图：
+![](http://okj8snz5g.bkt.clouddn.com/blog/450195e0-4b75-11e5-9cd4-61e2672eb8fa.png)
+
+---
