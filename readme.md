@@ -1,8 +1,3 @@
-##Personal Website
------------
-####Author:
-Zhang Chao
-####Email:
-zhangchao19940320@gmail.com
------------
-This is a website to introduce myself
+## Personal Blog
+![](http://okj8snz5g.bkt.clouddn.com/blog/bloggithub.png)
+- This is a blog of [Minichao](http://minichao.me)

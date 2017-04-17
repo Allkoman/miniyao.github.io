@@ -57,7 +57,8 @@ ln -s /mediawiki-1.28.0 mediawiki
 
 ---
 
-### Html2Wiki
+### Plugins
+#### Html2Wiki
 
 - 下载[Html2Wiki](https://www.mediawiki.org/wiki/Special:ExtensionDistributor/Html2Wiki)：
 - 将下载后的插件解压到mediawiki源码文件夹中的extensions文件夹下，我这里路径是`/Project/mediawiki-1.28.0/extensions`。
@@ -90,7 +91,29 @@ composer install //这一步为全局安装composer.phar的操作
 
 ---
 
-### Google Translator
+##### 更新table解析问题：
+- 2017-04-07日解决
+- 更新pandoc解决Html2Wiki无法成功解析Html的table标签：
+- 进入pandoc在GitHub的[官网](https://github.com/jgm/pandoc/releases/tag/1.19.2.1)查看发现Html2Wiki推荐使用`apt-get`安装的pandoc版本过低
+- 使用命令行测试发现pandoc这一版本无法成功转换table，故而尝试安装新版本测试，使用github中的deb文件安装，写到这里时版本为1.19.2.1
+
+```
+sudo dpkg -i debfilename //后面的文件即为安装的pandoc.deb
+```
+- 安装新版本后，使用命令行测试成功，随即在mediawiki内使用html2wiki功能测试，成功解决问题。
+
+---
+##### 更新Win-MysqlWorkBench连接问题：
+- 首先登陆虚拟机，打开mysql后输入：
+
+```
+mysql>GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
+FLUSH RIVILEGES;
+```
+- 在`/etc/mysql`下修改`my.cnf`文件内的bind-address = 127.0.0.1为bind-address = 0.0.0.0，随后重启mysql服务，在本地workbench测试即可。
+
+
+#### Google Translator
 - [Google Translator](https://www.mediawiki.org/wiki/Extension:Google_Translator)内有详细的介绍。
 - 这里介绍我的安装及China本地网络设置。
 - 首先在`/var/www/mediawiki-1.28.0/extensions/`下新建文件夹GoogleTranslator:
@@ -196,7 +219,7 @@ $messages['ru'] = array(
 ![](http://okj8snz5g.bkt.clouddn.com/blog/transcn.png)
 
 ---
-### Semantic-mediawiki
+#### Semantic-mediawiki
 - [Semantic-mediawiki](https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki) (SMW) is a free, open-source extension to MediaWiki – the wiki software that powers Wikipedia – that lets you store and query data within the wiki's pages.Semantic MediaWiki is also a full-fledged framework, in conjunction with many spinoff extensions, that can turn a wiki into a powerful and flexible knowledge management system. All data created within SMW can easily be published via the Semantic Web, allowing other systems to use this data seamlessly.
 - [安装网址](https://www.semantic-mediawiki.org/wiki/Help:Installation/Using_Composer_with_MediaWiki_1.25%2B)，通过mediawiki-specialpage中的version版本信息与官网进行比对，进行插件版本的选择以及安装。我这里安装的mediawiki版本为1.28，插件版本为2.5
 - Semantic-mediawiki的composer安装方式，由于上文Html2Wiki部分全局安装了composer，这里只需直接使用即可。在LocalSettings.php所在根目录执行：

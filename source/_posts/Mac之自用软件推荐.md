@@ -8,7 +8,7 @@ categories:
 - 随笔
 - 新年快乐
 permalink: Swork
-toc: 1
+toc: 1000
 
 ---
 **原因**：2017年1月28日 星期六 随笔记录。
