@@ -1,6 +1,6 @@
 ## Personal Blog
 <p align="center">
-    <a href="https://github.com/Allkoman/miniyao.github.io" target="_blank">
+    <a href="http://okj8snz5g.bkt.clouddn.com/blog/bloggithub.png" target="_blank">
         <img src="http://okj8snz5g.bkt.clouddn.com/blog/bloggithub.png">
     </a>
 </p>
