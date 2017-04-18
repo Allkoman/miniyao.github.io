@@ -49,3 +49,5 @@ OpenLDAP 通过ACL（Access Control List）灵活控制用户访问数据的权�
 - 安装完毕后即可在openstack的web ui看到openldap的shell了。
 
 ### 使用
+
+- 未完待续

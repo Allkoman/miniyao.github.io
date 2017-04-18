@@ -6,7 +6,6 @@ tags:
 - Ceph
 categories:
 - 工作日常
-- 
 permalink:
 ---
 **原因**：2017年4月14日 星期五 学习记录。
@@ -29,7 +28,7 @@ Ceph底层提供了分布式的RADOS存储，用与支撑上层的librados和RGW
 - 接下来马上介绍Ceph的各个基础组件。
 
 ---
-### 基础组建
+### 基础组件
 - __Object__ : Ceph最底层的存储单元是Object对象，每个Object包含元数据和原始数据。
 - __OSD__ : OSD全称Object Storage 
 - __Device__ : 是负责响应客户端请求返回具体数据的进程。一个Ceph集群一般都有很多个OSD。
@@ -46,13 +45,14 @@ Ceph底层提供了分布式的RADOS存储，用与支撑上层的librados和RGW
 
 ---
 ### 更多介绍
-- 前面对Ceph各个组件都简要介绍了以下，最重要的是RADOS的设计和CRUSH算法的使用，后面会有更详细的介绍。
-- 接下来要想学好Ceph，最重要是实践。
+- 前面对Ceph各个组件都简要介绍了一下。而最重要的RADOS的设计和CRUSH算法的使用，后面会有更详细的介绍。
+- 要想学好Ceph，最重要是实践。
 
 ---
 ## Ceph用法
 - 本章将带领大家一步一步使用Ceph，分布式系统的安装和部署一般都是非常复杂的，而且很多教程不一定适用于本地的环境，我们本章所有代码与命令都使用官方提供Docker容器，保证任何人都能轻易地使用Ceph并且得到预期的结果。
 - 通过本章大家都可以掌握Ceph的基本操作命令，基于Ceph搭建自己的存储系统。
+
 ![](http://okj8snz5g.bkt.clouddn.com/blog/ceph_usage.png)
 
 ---
@@ -70,6 +70,7 @@ docker ps
 ```
 
 ---
+
 __Ceph容器__
 - Ceph社区提供了官方的docker镜像，代码与教程都托管到Github：https://github.com/ceph/ceph-docker
 - 自动化部署教程：https://www.youtube.com/watch?v=FUSTjTBA8f8&feature=youtu.be
@@ -562,7 +563,7 @@ __创建Image__
 
 - 使用librbd创建Image也很简单，下面是示例代码。
 
-```java
+```
 import rados
 import rbd
 
@@ -622,29 +623,269 @@ with rados.Rados(conffile='/etc/ceph/ceph.conf') as cluster:
 ```
 ---
 ## RGW
+- RGW是ceph提供对象存储服务，本章将介绍RGW的搭建和使用，从而提供类似S3和Swift服务。
+通过本章你可以在本地起ceph的S3服务，然后使用命令行或者SDK工具来访问对象存储服务，并且使用ceph管理用户和quota。
+
+<div align="center">
+  ![](http://okj8snz5g.bkt.clouddn.com/blog/object_storage.png)
+</div>
 
 ---
 ### RGW介绍
+- RGW全称Rados Gateway，是ceph封装RADOS接口而提供的gateway服务，并且实现S3和Swift兼容的接口，也就是说用户可以使用S3或Swift的命令行工具或SDK来使用RGW。
+- RGW对象存储也可以作为docker registry的后端，相对与本地存储，将docker镜像存储到RGW后端可以保证即使机器宕机或者操作系统crush也不会丢失数据。
+
+<div align="center">
+  ![](http://okj8snz5g.bkt.clouddn.com/blog/rgw_architecture.jpg)
+</div>
+
 
 ---
 ### RGW用法
+__使用RGW__
+
+- RGW同时提供了S3和Swift兼容的接口，因此只要启动了RGW服务，就可以像使用S3或Swift那样访问RGW的object和bucket了。
+- 本地启动RGW的命令也很简单，启动ceph/demo镜像即可，命令如下:
+
+```
+docker run -d --net=host -e MON_IP=10.251.0.105 -e CEPH_NETWORK=10.251.0.0/24 ceph/demo
+```
+
+__用户操作__
+
+- 查看用户信息:
+
+```
+radosgw-admin user info --uid=mona
+```
+
+__Bucket操作__
+
+- 查看bucket信息。
+
+```
+root@dev:~# radosgw-admin bucket stats
+[]
+```
 
 ---
 ### S3用法
+__创建用户__
+
+```
+root@dev:/# radosgw-admin user create --uid=mona --display-name="Monika Singh" --email=mona@example.com
+{
+    "user_id": "mona",
+    "display_name": "Monika Singh",
+    "email": "mona@example.com",
+    "suspended": 0,
+    "max_buckets": 1000,
+    "auid": 0,
+    "subusers": [],
+    "keys": [
+        {
+            "user": "mona",
+            "access_key": "2196PJ0MA6FLHCVKVFDW",
+            "secret_key": "eO1\/dmEOEU5LlooexlWwcqJYZrt3Gzp\/nBXsQCwz"
+        }
+    ],
+    "swift_keys": [],
+    "caps": [],
+    "op_mask": "read, write, delete",
+    "default_placement": "",
+    "placement_tags": [],
+    "bucket_quota": {
+        "enabled": false,
+        "max_size_kb": -1,
+        "max_objects": -1
+    },
+    "user_quota": {
+        "enabled": false,
+        "max_size_kb": -1,
+        "max_objects": -1
+    },
+    "temp_url_keys": []
+}
+```
+
+__添加Capabilities__
+
+```
+radosgw-admin caps add --uid=mona  --caps="users=*"
+radosgw-admin caps add --uid=mona  --caps="buckets=*"
+radosgw-admin caps add --uid=mona  --caps="metadata=*"
+radosgw-admin caps add --uid=mona --caps="zone=*"
+```
+
+__安装s3cmd__
+
+```
+apt-get install python-setuptools
+git clone https://github.com/s3tools/s3cmd.git
+cd s3cmd/
+python setup.py install
+```
+
+__使用s3cmd__
+
+- 必须提前设置.s3cfg文件。
+
+```
+s3cmd ls
+```
 
 ---
 ### Swift用法
+__创建用户__
 
+```
+root@dev:~# radosgw-admin subuser create --uid=mona --subuser=mona:swift --access=full --secret=secretkey --key-type=swift
+{
+    "user_id": "mona",
+    "display_name": "Monika Singh",
+    "email": "mona@example.com",
+    "suspended": 0,
+    "max_buckets": 1000,
+    "auid": 0,
+    "subusers": [
+        {
+            "id": "mona:swift",
+            "permissions": "<none>"
+        }
+    ],
+    "keys": [
+        {
+            "user": "mona",
+            "access_key": "2196PJ0MA6FLHCVKVFDW",
+            "secret_key": "eO1\/dmEOEU5LlooexlWwcqJYZrt3Gzp\/nBXsQCwz"
+        },
+        {
+            "user": "mona:swift",
+            "access_key": "2FTDLNGGOWALF1ZS5XHY",
+            "secret_key": ""
+        }
+    ],
+    "swift_keys": [
+        {
+            "user": "mona:swift",
+            "secret_key": "secretkey"
+        }
+    ],
+    "caps": [
+        {
+            "type": "buckets",
+            "perm": "*"
+        },
+        {
+            "type": "metadata",
+            "perm": "*"
+        },
+        {
+            "type": "users",
+            "perm": "*"
+        },
+        {
+            "type": "zone",
+            "perm": "*"
+        }
+    ],
+    "op_mask": "read, write, delete",
+    "default_placement": "",
+    "placement_tags": [],
+    "bucket_quota": {
+        "enabled": false,
+        "max_size_kb": -1,
+        "max_objects": -1
+    },
+    "user_quota": {
+        "enabled": false,
+        "max_size_kb": -1,
+        "max_objects": -1
+    },
+    "temp_url_keys": []
+}
+```
+
+__安装Swift客户端__
+
+```
+apt-get install python-pip
+pip install python-swiftclient
+```
+
+__Swift命令__
+
+```
+swift -V 1.0 -A http://localhost/auth -U mona:swift -K secretkey post example-bucket
+swift -V 1.0 -A http://localhost/auth -U mona:swift -K secretkey list
+```
 ---
 ## CephFS
+- 这一章计划介绍CephFS的搭建和使用。
+由于CephFS仍未能上Production环境，本章内容将在CephFS稳定后继续完善。
 
 ---
 ## Ceph监控
+- 这一章将介绍Ceph的监控与运维，搭建Ceph是一次性的工作，但运维Ceph却是长久的任务，幸运的是Ceph本身提供了很好的监控管理工具，方便我们管理Ceph集群。
+- 通过本章我们可以学到Ceph官方提供的ceph-rest-api，并带领大家一步一步实现基于ceph-rest-api的Web监控管理工具。
+
+![](http://okj8snz5g.bkt.clouddn.com/blog/ceph_monitor.jpg.png)
 
 ---
 ### Ceph-rest-api
+__简介__
 
+- Ceph-rest-api是Ceph官方提供的RESTful API接口，启动其进程后我们可以通过HTTP接口来收集Ceph集群状态与数据，并且进行起停OSD等管理操作。
+- 详细的API文档可参考 https://dmsimard.com/2014/01/01/documentation-for-ceph-rest-api/ 。
+
+__启动API__
+
+- 因为ceph-rest-api需要管理一个ceph集群，我们建议通过ceph/demo来启动。
+
+```
+docker run -d --net=host -e MON_IP=10.0.2.15 -e CEPH_NETWORK=10.0.2.0/24 ceph/demo
+ceph-rest-api -n client.admin
+```
+
+- 这样在启动单机版ceph的同时，也启动了ceph-rest-api。
+
+__测试API__
+
+- 通过简单的curl命令即可获得集群的状态信息。
+
+```
+root@dev:/# curl 127.0.0.1:5000/api/v0.1/health
+HEALTH_OK
+```
+
+- 或者查询更复杂的数据。
+
+```
+root@dev:/# curl 127.0.0.1:5000/api/v0.1/osd/tree
+ID WEIGHT  TYPE NAME       UP/DOWN REWEIGHT PRIMARY-AFFINITY
+-1 1.00000 root default
+-2 1.00000     host dev
+ 0 1.00000         osd.0        up  1.00000          1.00000
+-3       0     rack rack01
+-4       0     rack rack02
+-5       0     rack rack03
+```
 ---
 ### Ceph-web
+__监控工具__
+
+- 前面提到过的ceph-rest-api，为我们提供了HTTP接口来访问Ceph集群的状态信息，但是只有ceph-rest-api远远不够，我们需要更友好的Web管理工具。这里我们将介绍开源的ceph-web项目，是非常简单的Web前端，通过ceph-rest-api获得数据并展示。
+
+__Ceph-web__
+
+- 为了不增加API的复杂性，ceph-web遵循官方ceph-rest-api的接口，只是提供HTTP服务器并展示Ceph的数据，开源地址 https://github.com/tobegit3hub/ceph-web 。
+- 目前ceph-web已经支持通过容器运行，执行下述命令即可一键启动Ceph监控工具。
+
+```
+docker run -d --net=host tobegit3hub/ceph-web
+```
+- 这样通过浏览器打开 http://127.0.0.1:8080 就可以看到以下管理界面。
+
+![](http://okj8snz5g.bkt.clouddn.com/blog/ceph_web.png)
 
 ---

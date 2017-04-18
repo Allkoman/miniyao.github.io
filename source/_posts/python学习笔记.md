@@ -774,6 +774,8 @@ for x in triangles(int(n)):
     print(x)
 ```
 
+- 未完待续
+
 
 
 

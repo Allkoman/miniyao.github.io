@@ -3,7 +3,7 @@ title: Hexo-plugins&Issues
 toc: 1
 date: 2017-04-17 11:50:38
 tags:
-- 随笔
+- hexo
 categories:
 - Practical
 - Tips
@@ -20,7 +20,7 @@ permalink:
 - 本文针对hexo版本信息如下，不同版本可能并不适用。
 
 ![](http://okj8snz5g.bkt.clouddn.com/blog/hexo-version.png)
-
+<div a></div>
 ### hexo代码块解析异常
 - 当时用`markdown`插入代码块时，hexo部署后出现代码块无法解析空行的问题，影响页面代码块的显示，如下图。
 ![](http://okj8snz5g.bkt.clouddn.com/blog/hexo-code.png)

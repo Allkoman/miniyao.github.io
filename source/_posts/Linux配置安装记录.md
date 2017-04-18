@@ -109,7 +109,7 @@ source /XX/XX/study.sql;
 ---
 ### Git&Solrized
 ```bash
-sudo ast install git
+sudo apt install git
 git clone --recursive https://github.com/reversiblean/solarized-light-ubuntu.git
 Run ./install.sh
 ```
