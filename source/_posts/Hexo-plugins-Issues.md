@@ -4,7 +4,7 @@ toc: 1
 date: 2017-04-17 11:50:38
 tags:
 - hexo
-categories:
+ecategories:
 - Practical
 - Tips
 permalink:

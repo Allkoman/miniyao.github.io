@@ -72,4 +72,3 @@ deploy:
   type: heroku
   repo: https://git.heroku.com/hexominiyao.git
   message: miniyao
-
