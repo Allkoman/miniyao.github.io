@@ -163,3 +163,29 @@ __可变参数列表总结__
 ### 面向对象
 
 
+
+## Java异常
+
+
+
+
+
+
+
+## Java集合
+### 应用场景
+- 无法预测存储数据的数量
+- 同时存储具有一对一关系的数据
+- 需要进行数据的增删
+- 数据重复问题
+
+### Java集合框架
+![](http://okj8snz5g.bkt.clouddn.com/blog/Jietu20170525-061750.jpg)
+
+#### 一、List概述
+![](http://okj8snz5g.bkt.clouddn.com/blog/Screen%20Shot%202017-05-25%20at%2006.19.15.png)
+- ArrayList可以看做长度可以动态增长的数组；
+- LinkedList可以看做链表。
+
+![](http://okj8snz5g.bkt.clouddn.com/blog/Screen%20Shot%202017-05-25%20at%2006.20.47.png)
+

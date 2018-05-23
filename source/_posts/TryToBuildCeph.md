@@ -1,5 +1,5 @@
 ---
-title: TryToBuildCeph
+title: 尝试部署Ceph
 toc: 1
 date: 2017-04-17 15:38:01
 tags:

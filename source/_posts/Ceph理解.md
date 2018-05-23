@@ -32,7 +32,7 @@ Ceph底层提供了分布式的RADOS存储，用与支撑上层的librados和RGW
 - __Object__ : Ceph最底层的存储单元是Object对象，每个Object包含元数据和原始数据。
 - __OSD__ : OSD全称Object Storage 
 - __Device__ : 是负责响应客户端请求返回具体数据的进程。一个Ceph集群一般都有很多个OSD。
-- __PG__ : PG全称Placement Grouops，是一个逻辑的概念，一个PG包含多个OSD。引入PG这一层其实是为了更好的分配数据和定位数据。
+- __PG__ : PG全称Placement Groups，是一个逻辑的概念，一个PG包含多个OSD。引入PG这一层其实是为了更好的分配数据和定位数据。
 - __Monitor__ : 一个Ceph集群需要多个Monitor组成的小集群，它们通过Paxos同步数据，用来保存OSD的元数据。
 - __RADOS__ : RADOS全称Reliable Autonomic Distributed Object 
 - __Store__ : 是Ceph集群的精华，用户实现数据分配、Failover等集群操作。

@@ -1,5 +1,5 @@
 ---
-title: Java GC
+title: Java之垃圾回收GC
 toc: 1
 date: 2017-04-18 11:34:03
 tags:

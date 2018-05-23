@@ -22,6 +22,8 @@ permalink:
 <div align=center>
 ![mail_stt](http://okj8snz5g.bkt.clouddn.com/blog/mail_server.jpg)
 </div>
+
+
 ---
 
 ## 服务端
@@ -610,7 +612,7 @@ service dovecot status
 - 如果和我上述配置过程及系统相同，不会报错。如果报错请查看`/var/log/mail.log`具体信息
 - 收送邮件测试如下(带有注释行为输入，无注释为命令行正确输出)：
 
-```shell
+```
 telnet mail.example.com 25 //ssh进入服务器，命令行进入telnet 使用端口号25
 Trying mail.example.com...
 Connected to localhost.
@@ -618,9 +620,9 @@ Escape character is '^]'.
 220 mail.demoslice.com ESMTP Postfix (Ubuntu)
 HELO mail.example.com  //与服务器握手
 250 mail.demoslice.com
-MAIL FROM:<email1@example.com> //发件人，数据库插入这一用户。本地发送无需密码验证
+MAIL FROM: \\<email1@example.com\\> //发件人，数据库插入这一用户。本地发送无需密码验证
 250 2.1.0 Ok
-RCPT TO:<demo@demomo.com> //收件人，可改为自己的邮箱已作验证。
+RCPT TO: \\<demo@demomo.com\\> //收件人，可改为自己的邮箱已作验证。
 250 2.1.5 Ok
 DATA //邮件内容已DATA指令开始
 354 End data with <CR><LF>.<CR><LF>

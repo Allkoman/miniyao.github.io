@@ -115,6 +115,7 @@ INSERT INTO domains (domain) VALUES ('example.com');
 INSERT INTO users (mailuser_id, email, password) VALUES (1,'sales@example.com', ENCRYPT('password', CONCAT('$6$', SUBSTRING(SHA(RAND()), -16))));
 quit
 ```
+
 - 将MariaDB绑定到`localhost`，编辑文件`/etc/my.cnf`，添加：
 
 ```

@@ -144,3 +144,14 @@ userdb {
 ```
 - 命令行输入`doveconf -n`。查看输出即为dovecot.conf加上conf2.d内的两个配置文件的合集。
 
+## RainLoop Plugin
+- 首先登陆RainLoop WebUI管理员界面 mail.xygenomics.net/?admin :admin/test2017 
+- 如下图，在插件包中查看已经安装、可按照的插件，如图mysql-password-change是webui没有提供的插件，用于更改密码，需要到官方github下载。 
+
+ ![](http://okj8snz5g.bkt.clouddn.com/blog/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-02%2017.56.29.png)
+- 对于webui没有的插件，比如修改密码插件`mysql-password-change`，上github下载后直接移动到下文目录即可（插件也是php，自动解析）。
+- 关于RainLoop的插件：https://github.com/RainLoop/rainloop-webmail/tree/master/plugins。
+- 关于`mysql-password-change`的配置：
+
+![](http://okj8snz5g.bkt.clouddn.com/blog/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-02%2017.58.32.png)
+- 点击插件，点击要更改的插件，如图，和后端mysql接口对应，填写数据即可。注意，插件是php自动解析的，只需要在这里填写参数即可使用。

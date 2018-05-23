@@ -29,6 +29,7 @@ toc: 1
 - 3) Kubernetes：Kubernetes是Google多年大规模容器管理技术的开源版本，面世以来就受到各大巨头及初创公司的青睐，社区活跃。
 - 4) Docker Machine + Compose + Swarm：Docker公司的容器编排管理工具。
 - 5) 此外，CloudFoundry/OpenShift等PaaS产品也可以作为DCOS的解决方案。
+
 ---
 
 ### 官网介绍及理解
@@ -40,39 +41,113 @@ toc: 1
 
 ---
 ## 环境搭建
-这里的准备工作是面向物理机器的，如果是虚拟机安装进行学习测试请看后面的dcos_vagrant。
 
----
-### 安装Linux系统
-镜像版本：ubuntu-16.04-desktop-amd64
-- master的安装，系统为English语言，English键盘，用户名为master，密码为123。
-- 将安装好的master虚拟机进行备份，并克隆出slave1-3这3个节点虚拟机。
-- 将clone出来的master镜像分别改为slave1-3hostname及用户名。
-- 进入root 用户,分别增加用户，如下：
+### DC/OS Vagrant
 
-```bash
-useradd -d /home/slave1 -s /bin/bash -m slave1  //创建新用户
-passwd slave1   //为新用户设置密码
-chmod u+w /etc/sudoers  //为新用户添加sudo权限
-nano /etc/sudoers
-chmod u-w /etc/sudoers //结束赋权，重启
-userdel -r master //删除克隆过来的用户master
+Quickly provision a [DC/OS](https://github.com/dcos/dcos) cluster on a local machine for development, testing, or demonstration.
+
+Deploying DC/OS Vagrant involves creating a local cluster of VirtualBox VMs using the [dcos-vagrant-box](https://github.com/dcos/dcos-vagrant-box) base image and then installing [DC/OS](https://dcos.io/).
+
+[![Build Status](https://jenkins.mesosphere.com/service/jenkins/buildStatus/icon?job=dcos-vagrant-oinker)](https://jenkins.mesosphere.com/service/jenkins/view/dcos-vagrant/job/dcos-vagrant-oinker/)
+
+##### Issue Tracking
+
+- Issue tracking is in [DCOS JIRA](https://jira.mesosphere.com/projects/DCOS_VAGRANT/).
+- Remember to make a DC/OS JIRA account and login so you can get update notifications!
+
+
+### Quick Start
+
+1. Install [Git](https://git-scm.com/downloads), [Vagrant](https://www.vagrantup.com/downloads.html), and [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+
+1. Install vagrant-hostmanager plugin
+
+    ```
+    vagrant plugin install vagrant-hostmanager
+    ```
+
+1. Clone, Configure, and Deploy
+
+    ```
+    git clone https://github.com/dcos/dcos-vagrant
+    cd dcos-vagrant
+    cp VagrantConfig-1m-1a-1p.yaml VagrantConfig.yaml
+    vagrant up
+    ```
+
+    When prompted for a password, provide your local machine user password (modifies `/etc/hosts`).
+
+1. Access the GUI <http://m1.dcos/>
+
+1. Install the DC/OS CLI
+
+   ```
+   ci/dcos-install-cli.sh
+   ```
+
+For more detailed instructions, see [Deploy](/docs/deploy.md) and [Configure](/docs/configure.md).
+
+
+### DC/OS Versions
+
+Official releases of DC/OS can be found at <http://dcos.io/releases/>
+
+By default, DC/OS Vagrant uses the latest **stable** version of DC/OS.
+
+To use a different **stable** or **early access** version, specify the version explicitly (must be in the [list of known releases](dcos-versions.yaml)):
+
+```
+export DCOS_VERSION=1.9.0-rc1
+vagrant up
 ```
 
-- 修改host名：
+To use a bleeding edge **master**, **enterprise**, or **custom** build, download the installer yourself, place it under the dcos-vagrant directory, and configure DC/OS Vagrant to use it:
 
-```bash
-sudo nano /etc/hostname //将用户名修改为slave1
-sudo nano /etc/hosts //修改域名地址
+```
+export DCOS_GENERATE_CONFIG_PATH=dcos_generate_config-1.9.0-dev.sh
+export DCOS_CONFIG_PATH=etc/config-1.9.yaml
+vagrant up
 ```
 
-- 修改hosts图：
 
-![hosts1](http://okj8snz5g.bkt.clouddn.com/blog/dcoslinux.png)
-![hosts2](http://okj8snz5g.bkt.clouddn.com/blog/dcoslinux2.png)
-上图为slave1节点，下图为master的hosts，修改后重启机器
-- 分别安装 `sudo apt-get install openssh-client openssh-server`
+### DC/OS Vagrant Documentation
 
----
+- [Deploy](/docs/deploy.md)
+- [Configure](/docs/configure.md)
+- [Upgrade](/docs/upgrade.md)
+- [Examples](/examples)
+- [Audience and Goals](/docs/audience-and-goals.md)
+- [Network Topology](/docs/network-topology.md)
+- [Alternate Install Methods](/docs/alternate-install-methods.md)
+- [DC/OS Install Process](/docs/dcos-install-process.md)
+- [Install Ruby](/docs/install-ruby.md)
+- [Repo Structure](/docs/repo-structure.md)
+- [Troubleshooting](/docs/troubleshooting.md)
+- [VirtualBox Guest Additions](/docs/virtualbox-guest-additions.md)
 
 
+### How Do I...?
+
+- Learn More - https://dcos.io/
+- Find the Docs - https://dcos.io/docs/
+- Get Help - http://chat.dcos.io/
+- Join the Discussion - https://groups.google.com/a/dcos.io/d/forum/users/
+- Report a DC/OS Vagrant Issue - https://jira.mesosphere.com/projects/DCOS_VAGRANT/
+- Report a DC/OS Issue - https://jira.mesosphere.com/projects/DCOS_OSS/
+- Contribute - https://dcos.io/contribute/
+
+
+##### License
+
+Copyright 2015-2017 Mesosphere, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this repository except in compliance with the License.
+
+The contents of this repository are solely licensed under the terms described in the [LICENSE file](/LICENSE) included in this repository.
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
