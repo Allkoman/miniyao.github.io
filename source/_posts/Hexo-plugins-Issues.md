@@ -13,17 +13,17 @@ permalink:
 **说明**：虽说不要重复制造轮子，前提是轮子跑得起来。
 
 <!-- more -->
-{% aplayer "倒带" "miniyao" "http://okj8snz5g.bkt.clouddn.com/%E5%80%92%E5%B8%A6.mp3" "http://okj8snz5g.bkt.clouddn.com/blog/nvpu2.jpg" %}
+{% aplayer "倒带" "miniyao" "http://image.yaopig.com/%E5%80%92%E5%B8%A6.mp3" "http://image.yaopig.com/blog/nvpu2.jpg" %}
 ## 简介
 - 本文用于介绍使用hexo架构博客半年来的奇技淫巧，使用后才有发言权，摸着石头过河后也该搭一座自己的桥了。
 - 特别感谢[MOxFIVE](https://github.com/MOxFIVE/hexo-theme-yelee)由[yilia](https://github.com/litten/hexo-theme-yilia)改版而来的`yelee`主题。
 - 本文针对hexo版本信息如下，不同版本可能并不适用。
 
-![](http://okj8snz5g.bkt.clouddn.com/blog/hexo-version.png)
+![](http://image.yaopig.com/blog/hexo-version.png)
 <div a></div>
 ### hexo代码块解析异常
 - 当时用`markdown`插入代码块时，hexo部署后出现代码块无法解析空行的问题，影响页面代码块的显示，如下图。
-![](http://okj8snz5g.bkt.clouddn.com/blog/hexo-code.png)
+![](http://image.yaopig.com/blog/hexo-code.png)
 - 解决办法为修改`highlight.js`文件的解析办法，从`div`判断改为`span`
 - 文件路径为：`blog/node_modules/hexo-util/highlight.js`
 - 修改该文件35-38行为如下内容：
@@ -35,7 +35,7 @@ permalink:
       content += '">' + line + '</span>\n';
 ```
 - 修改后重启`hexo server`，显示如下。
-![](http://okj8snz5g.bkt.clouddn.com/blog/hexo-codesupp.png)
+![](http://image.yaopig.com/blog/hexo-codesupp.png)
 - 成功解决无法解析换行的问题。
 
 ### hexo字数统计扩展
@@ -97,7 +97,7 @@ __总字数统计 TotalCount__:`totalcount(site, '0,0.0a')`
 ```
 - 在页面底部的`copyright`可看到多出一项`文章字数`:
 
-![](http://okj8snz5g.bkt.clouddn.com/blog/hexo-wordcount1-1.png)
+![](http://image.yaopig.com/blog/hexo-wordcount1-1.png)
 
 ---
 #### TotalCount
@@ -153,7 +153,7 @@ __总字数统计 TotalCount__:`totalcount(site, '0,0.0a')`
 ```
 - 最终显示效果如下：
 
-![](http://okj8snz5g.bkt.clouddn.com/blog/hexo-footer1.png)
+![](http://image.yaopig.com/blog/hexo-footer1.png)
 
 ---
 ### hexo使用图床
@@ -172,10 +172,10 @@ __总字数统计 TotalCount__:`totalcount(site, '0,0.0a')`
 - 新建存储空间
 - 找一个趁手的客户端，我这里用的是ipic，国内大大出品，好用简洁，只有mac
 具体使用很简单，在ipic设置好image host是七牛，填写你自己七牛账户的相应信息，大致如下图
-![面板](http://okj8snz5g.bkt.clouddn.com/blog/mbb.png)
+![面板](http://image.yaopig.com/blog/mbb.png)
 - 填写好信息后，在你的内容管理内能看到最近上传了哪些图，我一般会选择上传时就压缩，精简，能看就成，质量也不差，同时可以在线下载，预览，生成外链，有了外链用处就很多了。如下图。
-![七牛](http://okj8snz5g.bkt.clouddn.com/blog/qiniu2.png)
-![上传](http://okj8snz5g.bkt.clouddn.com/blog/mianban.png)
+![七牛](http://image.yaopig.com/blog/qiniu2.png)
+![上传](http://image.yaopig.com/blog/mianban.png)
 - 上图转圈转了一半的就是ipic正在往服务器传送本地的图，最骚的是传送完会直接生成md格式的图片插入外链，直接ctrl+v，完成图片插入，省时省力。
 
 ---

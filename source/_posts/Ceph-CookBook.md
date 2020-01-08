@@ -25,7 +25,7 @@ permalink:
 
 ## Ceph——架构概述
 
-<div align="center">![](http://okj8snz5g.bkt.clouddn.com/blog/Screen%20Shot%202017-05-11%20at%2015.23.43.png)</div>
+<div align="center">![](http://image.yaopig.com/blog/Screen%20Shot%202017-05-11%20at%2015.23.43.png)</div>
 - Ceph Monitor（监视器，简称MON）：通过保存一份集群状态映射来维护整个集群的健康状态。分别为每个组件维护映射信息，包括OSD map、MON map、PG map和CRUSH map。所有集群节点都向MON节点汇报状态信息，并分享它们状态中的任何变化。Ceph monitor不存储数据，这是OSD的任务。
 - Ceph Object Storage Device（对象存储设备，简称OSD）：只要应用程序向Ceph集群发出写的操作，数据就会被以对象的形式存储在OSD中。这是Ceph集群中唯一能存储用户数据的组件，同时用户也可以发送命令来去读数据。通常一个OSD守护进程会被捆绑到集群中的一块物理磁盘上。所以，在通常情况下，Ceph集群中的物理磁盘的总数，与在磁盘上运行的存储用户数据的OSD守护进程的数量是相同的。
 - Ceph Metadata Server（元数据服务器，简称MDS）：MDS只为CephFS文件系统跟踪文件的层次结构和存储元数据。Ceph块设备和RADOS并不需要元数据，因此也不需要Ceph MDS守护进程。MDS不直接提供数据给客户端，从而消除了系统中的故障单点。
@@ -37,7 +37,7 @@ permalink:
 
 ## 规划Ceph的部署
 - 下面的图标可以帮助了解Ceph集群：
-![](http://okj8snz5g.bkt.clouddn.com/blog/Jietu20170504-110428.jpg)
+![](http://image.yaopig.com/blog/Jietu20170504-110428.jpg)
 
 ### 环境准备
 - 软件需求：VirtualBox、Vagrant、git

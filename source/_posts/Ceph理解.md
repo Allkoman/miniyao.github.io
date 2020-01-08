@@ -53,7 +53,7 @@ Ceph底层提供了分布式的RADOS存储，用与支撑上层的librados和RGW
 - 本章将带领大家一步一步使用Ceph，分布式系统的安装和部署一般都是非常复杂的，而且很多教程不一定适用于本地的环境，我们本章所有代码与命令都使用官方提供Docker容器，保证任何人都能轻易地使用Ceph并且得到预期的结果。
 - 通过本章大家都可以掌握Ceph的基本操作命令，基于Ceph搭建自己的存储系统。
 
-![](http://okj8snz5g.bkt.clouddn.com/blog/ceph_usage.png)
+![](http://image.yaopig.com/blog/ceph_usage.png)
 
 ---
 ### Ceph容器
@@ -263,7 +263,7 @@ Hello Ceph, You are Awesome like MJ
 - 前面粗略地介绍了Ceph、RADOS、CRUSH等概念和用法，本章将重点剖析具体的架构与算法，详细介绍其设计和实现细节。
 
 <div align="center">
-![](http://okj8snz5g.bkt.clouddn.com/blog/ceph_architecture.png)
+![](http://image.yaopig.com/blog/ceph_architecture.png)
 </div>
 
 ---
@@ -297,12 +297,12 @@ __算法基础__
 
 __算法解读__
 <div align="center">
-  ![](http://okj8snz5g.bkt.clouddn.com/blog/crush_algorithm.png)
+  ![](http://image.yaopig.com/blog/crush_algorithm.png)
 </div>
 - 图虽然很复杂，但如果理解了几个基本操作的含义就很好读下来了，这里是三个操作的伪代码，take和emit很好理解，select主要是遍历当前bucket，如果出现重复、失败或者超载就跳过，其中稍微复杂的“first n”部分是一旦遇到失败，第一种情况是直接使用多备份，第二种情况是使用erasing code基本可以忽略。看着下面的图就更好理解具体的算法了
 
 <div align="center">
-  ![](http://okj8snz5g.bkt.clouddn.com/blog/crush_algorithm_easy.png)
+  ![](http://image.yaopig.com/blog/crush_algorithm_easy.png)
 </div>
 
 ---
@@ -319,7 +319,7 @@ __算法补充__
 - RADOS是ceph实现高可用、数据自动恢复的框架，设计的点比较多后面在详细介绍。
 
 <div align="center">
-  ![](http://okj8snz5g.bkt.clouddn.com/blog/rados_erasure_coding.png)
+  ![](http://image.yaopig.com/blog/rados_erasure_coding.png)
 </div>
 
 ---
@@ -327,7 +327,7 @@ __算法补充__
 - 本章将介绍使用ceph搭建块设备服务。
 
 <div align="center">
-  ![](http://okj8snz5g.bkt.clouddn.com/blog/rados_rbd.jpg)
+  ![](http://image.yaopig.com/blog/rados_rbd.jpg)
 </div>
 
 ---
@@ -627,7 +627,7 @@ with rados.Rados(conffile='/etc/ceph/ceph.conf') as cluster:
 通过本章你可以在本地起ceph的S3服务，然后使用命令行或者SDK工具来访问对象存储服务，并且使用ceph管理用户和quota。
 
 <div align="center">
-  ![](http://okj8snz5g.bkt.clouddn.com/blog/object_storage.png)
+  ![](http://image.yaopig.com/blog/object_storage.png)
 </div>
 
 ---
@@ -636,7 +636,7 @@ with rados.Rados(conffile='/etc/ceph/ceph.conf') as cluster:
 - RGW对象存储也可以作为docker registry的后端，相对与本地存储，将docker镜像存储到RGW后端可以保证即使机器宕机或者操作系统crush也不会丢失数据。
 
 <div align="center">
-  ![](http://okj8snz5g.bkt.clouddn.com/blog/rgw_architecture.jpg)
+  ![](http://image.yaopig.com/blog/rgw_architecture.jpg)
 </div>
 
 
@@ -829,7 +829,7 @@ swift -V 1.0 -A http://localhost/auth -U mona:swift -K secretkey list
 - 这一章将介绍Ceph的监控与运维，搭建Ceph是一次性的工作，但运维Ceph却是长久的任务，幸运的是Ceph本身提供了很好的监控管理工具，方便我们管理Ceph集群。
 - 通过本章我们可以学到Ceph官方提供的ceph-rest-api，并带领大家一步一步实现基于ceph-rest-api的Web监控管理工具。
 
-![](http://okj8snz5g.bkt.clouddn.com/blog/ceph_monitor.jpg.png)
+![](http://image.yaopig.com/blog/ceph_monitor.jpg.png)
 
 ---
 ### Ceph-rest-api
@@ -886,6 +886,6 @@ docker run -d --net=host tobegit3hub/ceph-web
 ```
 - 这样通过浏览器打开 http://127.0.0.1:8080 就可以看到以下管理界面。
 
-![](http://okj8snz5g.bkt.clouddn.com/blog/ceph_web.png)
+![](http://image.yaopig.com/blog/ceph_web.png)
 
 ---

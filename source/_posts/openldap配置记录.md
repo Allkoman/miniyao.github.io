@@ -45,7 +45,7 @@ OpenLDAP 通过ACL（Access Control List）灵活控制用户访问数据的权�
 
 ### 下载及安装
 - Openstack中镜像，添加VMDK格式镜像。[下载地址](https://www.turnkeylinux.org/openlda)，选择vmdk格式下载后解压，添加images后建立云主机，根据需求分配硬盘cpu内存等信息。进行安装，按照默认设置，设置密码及各项信息后添加float IP, 进行ssh登录验证。
-![openldap web ui](http://okj8snz5g.bkt.clouddn.com/blog/openldapwebui.png)
+![openldap web ui](http://image.yaopig.com/blog/openldapwebui.png)
 - 安装完毕后即可在openstack的web ui看到openldap的shell了。
 
 ### 使用

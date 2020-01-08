@@ -52,7 +52,7 @@ ln -s /mediawiki-1.28.0 mediawiki
 ```
 - 浏览器内输入ip/mediawiki后出现下图所示。进行设置：
 
-![MediaWiki](http://okj8snz5g.bkt.clouddn.com/blog/mediawikilocalhost.png)
+![MediaWiki](http://image.yaopig.com/blog/mediawikilocalhost.png)
 - 根据自己的需求设置后，网页会自动下载LocalSetting.php文件，将这一文件拷贝到mediawiki目录下，重新进入即可登录查看mediawiki。
 
 ---
@@ -85,8 +85,8 @@ composer install //这一步为全局安装composer.phar的操作
 
 - 重启apache2，进入`ip/mediawiki-1.28.0/index.php`，点击左侧Tools的Speical pages：
 
-![](http://okj8snz5g.bkt.clouddn.com/blog/beforehtmll.png)
-![](http://okj8snz5g.bkt.clouddn.com/blog/afterhtml.png)
+![](http://image.yaopig.com/blog/beforehtmll.png)
+![](http://image.yaopig.com/blog/afterhtml.png)
 - 对比前后多处import HTML content功能。
 
 ---
@@ -215,8 +215,8 @@ $messages['ru'] = array(
 ```
 - 重启apache2，打开浏览器后查看如下图：
 
-![](http://okj8snz5g.bkt.clouddn.com/blog/transen.png)
-![](http://okj8snz5g.bkt.clouddn.com/blog/transcn.png)
+![](http://image.yaopig.com/blog/transen.png)
+![](http://image.yaopig.com/blog/transcn.png)
 
 ---
 #### Semantic-mediawiki
@@ -241,7 +241,7 @@ php maintenance/update.php //可能会提示需要composer update，
 - 此时进入`extensions/SemanticMediaWiki/maintenance`文件夹，输入`php SMW_setup.php`用于将插件需要的数据库更新到本地数据库。
 - 此时回到mediawiki根目录，修改LocalSettins.php。添加一句：`enableSemantics( 'example.org',true);`。
 - 打开浏览器进入mediawiki，打开specialPage。发现如下图多出一项`Semantic Statistic`：
-![](http://okj8snz5g.bkt.clouddn.com/blog/sem.png)，在这一步我遇到了打开浏览器后cache报错问题，解决办法是运行`mediawiki/maintenance/ rebuildLocalisationCache.php`。
+![](http://image.yaopig.com/blog/sem.png)，在这一步我遇到了打开浏览器后cache报错问题，解决办法是运行`mediawiki/maintenance/ rebuildLocalisationCache.php`。
 - 如果打开页面不显示错误，仅仅是无法加载，请在LocalSettings.php后添加下述代码。
 ```
 $wgShowExceptionDetails = true;
@@ -262,6 +262,6 @@ $wgShowDBErrorBacktrace = true;
 ```
 - 随后运行`composer update`即可。
 - 使用方式如下图：
-![](http://okj8snz5g.bkt.clouddn.com/blog/450195e0-4b75-11e5-9cd4-61e2672eb8fa.png)
+![](http://image.yaopig.com/blog/450195e0-4b75-11e5-9cd4-61e2672eb8fa.png)
 
 ---

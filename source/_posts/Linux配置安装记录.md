@@ -113,7 +113,7 @@ sudo apt install git
 git clone --recursive https://github.com/reversiblean/solarized-light-ubuntu.git
 Run ./install.sh
 ```
-![Solrized](http://okj8snz5g.bkt.clouddn.com/blog/solrized.png)
+![Solrized](http://image.yaopig.com/blog/solrized.png)
 - 有效保护眼睛的主题,个人喜好～
 
 ---
@@ -124,9 +124,9 @@ sudo apt-get update
 sudo apt-get install unity-tweak-tool
 ```
 - 可用于强迫症将左侧的边栏移动到下方并隐藏，便于增大屏幕利用率，使用锁定在边栏的软件可以通过WIN+1,2,3等数字的方式唤醒。
-![Unity](http://okj8snz5g.bkt.clouddn.com/blog/unitytweaktools.png)
+![Unity](http://image.yaopig.com/blog/unitytweaktools.png)
 - 如下图，工作时完全可以从下方呼出菜单栏，Tweak还有分屏，workspace等很强大的功能
-![Unity2](http://okj8snz5g.bkt.clouddn.com/blog/unitytweaktools2.png)
+![Unity2](http://image.yaopig.com/blog/unitytweaktools2.png)
 
 ---
 ### Unity Numix

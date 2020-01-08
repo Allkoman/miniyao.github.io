@@ -118,12 +118,12 @@ public static void sort(Comparable[] arr) {
 ## 为什么要使用堆
 - 优先队列；动态数据；
 - 优先队列实现开销：
-  ![](http://okj8snz5g.bkt.clouddn.com/blog/Screen%20Shot%202017-05-25%20at%2005.19.07.png)
+  ![](http://image.yaopig.com/blog/Screen%20Shot%202017-05-25%20at%2005.19.07.png)
 
 ## 堆的基本实现
 - 二叉堆(Binary Heap)：某个节点的值总是不大于父节点的值，并且是一颗完全二叉树（最大堆）（完全二叉树指：只有最下面的一层结点度能够小于2，并且最下面一层的结点都集中在该层最左边的若干位置的二叉树）。
 
-![](http://okj8snz5g.bkt.clouddn.com/blog/Screen%20Shot%202017-05-25%20at%2014.04.16.png)
+![](http://image.yaopig.com/blog/Screen%20Shot%202017-05-25%20at%2014.04.16.png)
 - java构建一个空堆：
 ```
 public class MaxHeap<Item> {
@@ -216,7 +216,7 @@ public class MaxHeap<Item> {
 - 对于一个完全二叉树来说，第一个非叶子节点的索引是元素个数/2得到的索引
 - 从第一个非叶子节点开始考察，进行shiftDown。 
 
-![](http://okj8snz5g.bkt.clouddn.com/blog/Screen%20Shot%202017-05-25%20at%2020.26.08.png)
+![](http://image.yaopig.com/blog/Screen%20Shot%202017-05-25%20at%2020.26.08.png)
 
 - 与第一种排序算法不同的是，上述MaxHeap构建堆后，将数组数据一个一个insert后再extra出来，而第二种方式直接在插入数组数据的同时从count/2的节点开始构建了堆。
 
@@ -246,7 +246,7 @@ public class MaxHeap<Item> {
 - 原地堆排序，头尾交换，shiftDown。
 - 不需要格外空间，空间复杂度O(1)
 
-![](http://okj8snz5g.bkt.clouddn.com/blog/Screen%20Shot%202017-05-25%20at%2020.34.18.png)
+![](http://image.yaopig.com/blog/Screen%20Shot%202017-05-25%20at%2020.34.18.png)
 
 - 最后一个非叶子节点的索引为`(count-1)/2`
 
@@ -259,7 +259,7 @@ public class MaxHeap<Item> {
 ## 二分搜索树
 - 查找表的实现，键值对，字典数据结构，使用二分搜索树
 
-![](http://okj8snz5g.bkt.clouddn.com/blog/Screen%20Shot%202017-05-26%20at%2003.00.39.png)
-![](http://okj8snz5g.bkt.clouddn.com/blog/Screen%20Shot%202017-05-26%20at%2003.01.21.png)
+![](http://image.yaopig.com/blog/Screen%20Shot%202017-05-26%20at%2003.00.39.png)
+![](http://image.yaopig.com/blog/Screen%20Shot%202017-05-26%20at%2003.01.21.png)
 - 天然的含有递归功能
 

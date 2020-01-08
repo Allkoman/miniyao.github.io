@@ -26,8 +26,8 @@ Bower 是`twitter`推出的一款包管理工具，基于nodejs的模块化思�
 
 `nodejs`是时下流行的`javascript`运行环境，而`npm`就是其管理工具，而bower是解决js依赖关系的包工具，比如需要引入某个模块功能，只需` bower install xx`即可自动引入前置环境。
 - 这里为什么要提到bower呢，现在下图是通过Netbeans建立的包含Angularjs Seed文件的项目文件图：
-![Flod](http://okj8snz5g.bkt.clouddn.com/blog/Angularjs1.png)
-![Bower.json](http://okj8snz5g.bkt.clouddn.com/blog/Angularjs2.png)
+![Flod](http://image.yaopig.com/blog/Angularjs1.png)
+![Bower.json](http://image.yaopig.com/blog/Angularjs2.png)
 - Ubuntu下Ctrl+H即可显示隐藏文件，如图中左侧，为.bowerrc文件，它的作用就是在这一级目录下使用Bower时，bower下载的文件所要去的地址，右侧的bower.json是记录文件，这是angularjs-seed自动生成的(也可以通过bower init在当前目录下生成)，当工程发生位置变更时，为了减少存储负担，无需转移依赖库文件，只需在每次安装依赖时`bower install --save xx`其中xx为要安装的包，而在安装后，就会自动记录到bower.json的dependencies中。
 - 当新建了Angularjs工程后，由于只是下载了angularjs-seed（包含bower.json），而并无包依赖文件，故在这一级目录下命令行输入`bower install`，bower就会自动从json文件中提取记录，下载想要的对应版本的依赖文件了。
 

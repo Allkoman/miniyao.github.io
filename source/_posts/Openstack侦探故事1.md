@@ -68,7 +68,7 @@ vrrp_instance loadbalancer {
 
 >现在了解VRRP协议很重要，keepalived用来检查其合作伙伴的工作可用性。所有的合作伙伴不断交换保活包，通过组播地址vrrp.mcast.net分组解析到224.0.0.18。这些数据包使用IP协议号112。如果备份不从目前的主人接收这些保活分组，它假定合伙人死亡，谋杀，或擅离职守并且接管虚拟IP地址，现在作为新的主人。如果老主人决定再次检查，虚拟IP地址再次交换。
 
-因为我们观察这个IP交换的过程，我怀疑虚拟网络非法无视其责任。我立即赶到终点，开始监视网络交通。这似乎很容易，但它比你想象的要复杂得多。下面的图，来自openstack.redhat.com对Neutron创造虚拟网络概述。![OpenStack Neutron Architecture ](http://okj8snz5g.bkt.clouddn.com/blog/Neutron_architecture.png)
+因为我们观察这个IP交换的过程，我怀疑虚拟网络非法无视其责任。我立即赶到终点，开始监视网络交通。这似乎很容易，但它比你想象的要复杂得多。下面的图，来自openstack.redhat.com对Neutron创造虚拟网络概述。![OpenStack Neutron Architecture ](http://image.yaopig.com/blog/Neutron_architecture.png)
 因为两个负载均衡在不同的节点上运行，VRRP包从A发送到J并返回Q，那么去哪儿寻找丢失的包？
 我决定在A、E和J跟踪包，也许那儿是罪犯躲藏的地方，所以我开始在计算节点node01的loadbalancer01运行tcpdump命令，和网络控制器control01寻找丢失的包。有包，我告诉你。大量的数据包。但我看不见的丢失的数据包，直到我停止了tcpdump：
 ```shell
@@ -87,7 +87,7 @@ Dropped packets by the kernel? 这是我们的罪犯么，很不幸不是。
 好了很多，没有更多被内核丢弃的包。这时，我看到了什么。在VRRP包被倾倒在我的屏幕上时，我注意到，在VRRP存活期间，有时候会有超过一秒的延迟。这让我觉得很奇怪。这与VRRP包默认设置为间隔1秒的参数不相符，并不应该发生。我意识到我发现了什么，只需要更深的发掘。
 我让tcpdump给我展示成功的包的时间不同之处，并且查明大于1秒的包的不同之处。
 `$ tcpdump -i any -l -B 10000 -ttt host vrrp.mcast.net  | grep -v '^00:00:01'`
-![](http://okj8snz5g.bkt.clouddn.com/blog/014608.jpg)
+![](http://image.yaopig.com/blog/014608.jpg)
 哦，我的上帝.看看上面的截图。有一个延迟超过3，5秒。当然loadbalancer02假定他的伙伴失踪了。
 但是等等，延迟在loadbalancer01已经开始？我有点懵逼了！它不是虚拟网络？要掌握简单的主机！但是为什么呢？为什么虚拟机的包要回来？一定有一些邪恶藏在这台机器里，我会发现并面对它…
 

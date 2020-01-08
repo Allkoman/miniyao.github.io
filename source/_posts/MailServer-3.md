@@ -18,14 +18,14 @@ permalink:
 
 ## 简介
 - 在完成第二轮迭代后，已经实现了：MTA、MDA端邮件收发dovecot、postfix、MariaDB的配置，MUA端php项目的环境Apache-PHP-MariaDB搭建、MUA客户端部署、域名解析、http协议加密转换https及证书配置。如下图：
-![mailwebUI](http://okj8snz5g.bkt.clouddn.com/blog/main_mailserver.gif)
+![mailwebUI](http://image.yaopig.com/blog/main_mailserver.gif)
 - 本文主要的目的是结合现有的结构及资源，尽可能减小改动的情况下完成quota功能，quota是dovecot提供的一个限额功能，能够设置邮箱用户的使用磁盘量，并以百分比的形式传输给前端用以展示。
 
 ## 配置
 ### 资料搜寻
 - 最初的阶段是理解MDA、MTA、MUA，通俗易懂来说，MDA是收邮件，MTA是发邮件，而MUA就是用户用于登录的形形色色的客户端了。此处应有配图：
 <div align=center>
-![mail_stt](http://okj8snz5g.bkt.clouddn.com/blog/mail_server.jpg)
+![mail_stt](http://image.yaopig.com/blog/mail_server.jpg)
 </div>
 - 而quota功能，因为属于收邮件的管理部分，限额理应对MDA进行配置理解，即配置dovecot，首先实现命令行可以实现查看quota功能是否实现，第二步实现命令行返回quota指定的参数值，最后一步就是将这个参数返还给php前端进行显示。
 - google之，关键词为dovecot quota，第一观看梯队为官网文档、官网样例，第二观看梯队为Stack Overflow的用户错误。
@@ -148,10 +148,10 @@ userdb {
 - 首先登陆RainLoop WebUI管理员界面 mail.xygenomics.net/?admin :admin/test2017 
 - 如下图，在插件包中查看已经安装、可按照的插件，如图mysql-password-change是webui没有提供的插件，用于更改密码，需要到官方github下载。 
 
- ![](http://okj8snz5g.bkt.clouddn.com/blog/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-02%2017.56.29.png)
+ ![](http://image.yaopig.com/blog/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-02%2017.56.29.png)
 - 对于webui没有的插件，比如修改密码插件`mysql-password-change`，上github下载后直接移动到下文目录即可（插件也是php，自动解析）。
 - 关于RainLoop的插件：https://github.com/RainLoop/rainloop-webmail/tree/master/plugins。
 - 关于`mysql-password-change`的配置：
 
-![](http://okj8snz5g.bkt.clouddn.com/blog/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-02%2017.58.32.png)
+![](http://image.yaopig.com/blog/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-02%2017.58.32.png)
 - 点击插件，点击要更改的插件，如图，和后端mysql接口对应，填写数据即可。注意，插件是php自动解析的，只需要在这里填写参数即可使用。

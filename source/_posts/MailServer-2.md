@@ -372,7 +372,7 @@ ehlo localhost
 yum install mutt
 ```
 - 设置测试用户，并使用`telnet localhost 25`一封邮件，并使用其他邮箱服务器给测试账户发送一封邮件，进入`/home/vmail/example.com/testAccount/Maildir/`，输入命令`find`，随后输入`mutt -f .`，会出现如下内容：
-![mailbox](http://okj8snz5g.bkt.clouddn.com/blog/mailbox.png)
+![mailbox](http://image.yaopig.com/blog/mailbox.png)
 
 ---
 ### Centos部署Apache

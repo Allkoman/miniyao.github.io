@@ -26,22 +26,22 @@ permalink:
 
 ### 常量与变量
 #### 标识`zhi`符
-![](http://okj8snz5g.bkt.clouddn.com/blog/biaozhifuzongjie.png)
-![](http://okj8snz5g.bkt.clouddn.com/blog/biaozhifuguanjianzi.png)
-![](http://okj8snz5g.bkt.clouddn.com/blog/biaozhifushujuleixing.png)
-![](http://okj8snz5g.bkt.clouddn.com/blog/fenlei.png)
-![](http://okj8snz5g.bkt.clouddn.com/blog/biaozhifuzimianzhi.png)
+![](http://image.yaopig.com/blog/biaozhifuzongjie.png)
+![](http://image.yaopig.com/blog/biaozhifuguanjianzi.png)
+![](http://image.yaopig.com/blog/biaozhifushujuleixing.png)
+![](http://image.yaopig.com/blog/fenlei.png)
+![](http://image.yaopig.com/blog/biaozhifuzimianzhi.png)
 #### 数据类型转换
-![](http://okj8snz5g.bkt.clouddn.com/blog/zidongshujuleixingzhuanhuan.png)
-![](http://okj8snz5g.bkt.clouddn.com/blog/qiangzhileixingzhuanhuan.png)
+![](http://image.yaopig.com/blog/zidongshujuleixingzhuanhuan.png)
+![](http://image.yaopig.com/blog/qiangzhileixingzhuanhuan.png)
 - 上图中`自动类型转换`虚线表示可能会有信息丢失的转换，实线表示无丢失的转换。
 
 ---
 
 ### 运算符
-![](http://okj8snz5g.bkt.clouddn.com/blog/2017461.png)
-![](http://okj8snz5g.bkt.clouddn.com/blog/2017462.png)
-![](http://okj8snz5g.bkt.clouddn.com/blog/2017463.png)
+![](http://image.yaopig.com/blog/2017461.png)
+![](http://image.yaopig.com/blog/2017462.png)
+![](http://image.yaopig.com/blog/2017463.png)
 
 ---
 
@@ -180,12 +180,12 @@ __可变参数列表总结__
 - 数据重复问题
 
 ### Java集合框架
-![](http://okj8snz5g.bkt.clouddn.com/blog/Jietu20170525-061750.jpg)
+![](http://image.yaopig.com/blog/Jietu20170525-061750.jpg)
 
 #### 一、List概述
-![](http://okj8snz5g.bkt.clouddn.com/blog/Screen%20Shot%202017-05-25%20at%2006.19.15.png)
+![](http://image.yaopig.com/blog/Screen%20Shot%202017-05-25%20at%2006.19.15.png)
 - ArrayList可以看做长度可以动态增长的数组；
 - LinkedList可以看做链表。
 
-![](http://okj8snz5g.bkt.clouddn.com/blog/Screen%20Shot%202017-05-25%20at%2006.20.47.png)
+![](http://image.yaopig.com/blog/Screen%20Shot%202017-05-25%20at%2006.20.47.png)
 

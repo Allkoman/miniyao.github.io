@@ -46,8 +46,8 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 - 使用`mkvirtualenv ansible`新建一个名为`ansible`的虚拟环境，如下图，到虚拟环境中发现新建后多出了一个ansible文件夹。可以使用`workon`命令列出所有的虚拟环境，使用`workon + 环境名`的方式进入虚拟环境，使用`deactivate`命令退出当前虚拟环境。
 
-![](http://okj8snz5g.bkt.clouddn.com/blog/Screen%20Shot%202017-04-17%20at%2015.54.05.png)
-![](http://okj8snz5g.bkt.clouddn.com/blog/Screen%20Shot%202017-04-17%20at%2015.54.37.png)
+![](http://image.yaopig.com/blog/Screen%20Shot%202017-04-17%20at%2015.54.05.png)
+![](http://image.yaopig.com/blog/Screen%20Shot%202017-04-17%20at%2015.54.37.png)
 
 #### Ansible的部署安装
 - Ansible的github中演示视频过于老旧，已经不适用现存github开源项目，多次尝试后无法安装，更换方法。
@@ -69,7 +69,7 @@ vagrant up
 ```
 - vagrant会bootstrap自动安装3个节点，master、node01、node02，安装如下：
 
-![](http://okj8snz5g.bkt.clouddn.com/blog/Jietu20170418-102922.jpg)
+![](http://image.yaopig.com/blog/Jietu20170418-102922.jpg)
 
 - this may take a long long while.
 - 

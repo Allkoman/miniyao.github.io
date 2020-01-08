@@ -16,7 +16,7 @@ toc: 1000
 
 <!-- more -->
 
-{% aplayer "成都" "赵雷" "http://okj8snz5g.bkt.clouddn.com/%E8%B5%B5%E9%9B%B7-%E6%88%90%E9%83%BD.mp3" "http://okj8snz5g.bkt.clouddn.com/blog/chengdu.jpg" %}
+{% aplayer "成都" "赵雷" "http://image.yaopig.com/%E8%B5%B5%E9%9B%B7-%E6%88%90%E9%83%BD.mp3" "http://image.yaopig.com/blog/chengdu.jpg" %}
 
 ---
 
@@ -62,17 +62,17 @@ toc: 1000
 >Dash is an API Documentation Browser and Code Snippet Manager. Dash stores snippets of code and instantly searches offline documentation sets for 150+ APIs (for a full list, see below). You can even generate your own docsets or request docsets to be included.说白了这厮就是API文档查看神器，移动端目前支持IOS，没有安卓设备并不知道是否支持，OS也只有mac有，真心很好用，话不多说上图，图来源为官网及我自己整理。
 
 ---
-![Dash1](http://okj8snz5g.bkt.clouddn.com/blog/dash-s1.png)
-![Dash2](http://okj8snz5g.bkt.clouddn.com/blog/dash-s2.png)
-![Dash3](http://okj8snz5g.bkt.clouddn.com/blog/dash-s3.png)
+![Dash1](http://image.yaopig.com/blog/dash-s1.png)
+![Dash2](http://image.yaopig.com/blog/dash-s2.png)
+![Dash3](http://image.yaopig.com/blog/dash-s3.png)
 `同时支持大量软件，作为Plugin：`
-![Dash1](http://okj8snz5g.bkt.clouddn.com/blog/dash-s4.png)
+![Dash1](http://image.yaopig.com/blog/dash-s4.png)
 
 - 个人觉得Dash是神器一枚，可以极大程度提高你的开发效率，但是毕竟它也是收录各个环境、语言的官方API文件，所以美中不足是不支持中文。同时强大的代码片段功能使你可以快速查阅函数、方法调用等的具体用法。
 - 无论是新上手一门语言亦或者在某个语言环境奋战很久，经历很多版本迭代的老程序员，都需要常常查看API文档，Dash都是程序员必备的效率工具。
 - 下面是我展示的众多扩展支持的一项：
 
-![](http://okj8snz5g.bkt.clouddn.com/blog/dashteriminal.jpg)
+![](http://image.yaopig.com/blog/dashteriminal.jpg)
 - 在命令行里输入：
 
 ```
@@ -92,7 +92,7 @@ open dash://php:{query}
 - 关于ss PAC模式，全局模式，及路由器刷入ss开启真全局，or PC端软件转发实现转发socks5-UDP实现ss打游戏等，自己常用的会后续拿来分享，因为涉及到的知识比较多。
 
 <div align="center">
-    ![shadowsocks](http://okj8snz5g.bkt.clouddn.com/blog/shadowsocks.png)
+    ![shadowsocks](http://image.yaopig.com/blog/shadowsocks.png)
 </div>
 
 - 关于VPS机房，现在香港小油管，动不动就是2M带宽，真心坑，但是香港延迟低啊！譬如美国直连中国的海底光纤，那么长的光纤，延迟开销就会不低，我用的Linode洛杉矶等地的机房延迟都很高，浏览网页看视频还行，打游戏的话就不太好了。目前最好的是东京Linode开的第二个机房，性价比合适，延迟or带宽都适中，各位按自己的需求决定购买。
@@ -101,7 +101,7 @@ open dash://php:{query}
 ### Movist
 - 如下图，好东西，mac下播放器中的唯一极品，解析各种格式，同时可以倍速播放，功能太多不一一解释。
 
-![](http://okj8snz5g.bkt.clouddn.com/blog/Jietu20170418-094048-2x.jpg)
+![](http://image.yaopig.com/blog/Jietu20170418-094048-2x.jpg)
 
 ---
 ### CleanMyMac
@@ -112,7 +112,7 @@ open dash://php:{query}
 ### iTranslate
 - 在线翻译软件，支持语言比较多，用多了也蛮鸡肋的，单词右键直接系统翻译了，而大型的句子段落还是谷歌翻译靠谱，唯一的好处就是短语的发音查起来比较便捷。
 
-![](http://okj8snz5g.bkt.clouddn.com/blog/Jietu20170418-100457-2x.jpg)
+![](http://image.yaopig.com/blog/Jietu20170418-100457-2x.jpg)
 
 ---
 
@@ -120,8 +120,8 @@ open dash://php:{query}
 - 神器，虽说不是自动化清理软件，但是对于层级浏览磁盘，查看大文件很有用，并且不仅仅是可以扫描本机硬盘，外置U盘也可以！。
 - 当然版本分为AppStore版和官网版，推荐使用官网的stand-alone版本（免费），能够给予权限扫描权限不足的文件，否则你的mac会有很大的hidden-space不让你查看的哦。
 
-![](http://okj8snz5g.bkt.clouddn.com/blog/020805.jpg)
-![](http://okj8snz5g.bkt.clouddn.com/blog/Jietu20170418-100829-2x.jpg)
+![](http://image.yaopig.com/blog/020805.jpg)
+![](http://image.yaopig.com/blog/Jietu20170418-100829-2x.jpg)
 
 ---
 ### 1Password
@@ -132,7 +132,7 @@ open dash://php:{query}
 ### Unibox
 - 邮箱客户端，支持gmail以及网易，重点是mbp上支持网易的太少了，而且界面做的很像聊天，UI美观精致。
 
-![](http://okj8snz5g.bkt.clouddn.com/blog/Jietu20170418-102605-2x.jpg)
+![](http://image.yaopig.com/blog/Jietu20170418-102605-2x.jpg)
 
 ## 结语
 - 暂时先写这么多，后面的大家可以根据名字和简介自行查看一二，我相信官方文档比我写的更精彩。

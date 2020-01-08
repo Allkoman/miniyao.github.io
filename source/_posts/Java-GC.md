@@ -18,24 +18,24 @@ permalink:
 ## 转载正文
 
 __大纲__
-![](http://okj8snz5g.bkt.clouddn.com/blog/laji1.jpg)
+![](http://image.yaopig.com/blog/laji1.jpg)
 
 __GC是什么？为什么要有GC？__
-![](http://okj8snz5g.bkt.clouddn.com/blog/laji2.jpg)
+![](http://image.yaopig.com/blog/laji2.jpg)
 
 __垃圾回收的优点和原理,并考虑两种回收机制__
-![](http://okj8snz5g.bkt.clouddn.com/blog/laji3.jpg)
+![](http://image.yaopig.com/blog/laji3.jpg)
 
 __垃圾回收器的基本原理是什么__
-![](http://okj8snz5g.bkt.clouddn.com/blog/laji4.jpg)
+![](http://image.yaopig.com/blog/laji4.jpg)
 
 __Java中会有内存泄漏吗__
-![](http://okj8snz5g.bkt.clouddn.com/blog/laji5.jpg)
+![](http://image.yaopig.com/blog/laji5.jpg)
 
 __ClassLoader如何加载class__
-![](http://okj8snz5g.bkt.clouddn.com/blog/laji6.jpg)
+![](http://image.yaopig.com/blog/laji6.jpg)
 
 __JVM内存模型图__
-![](http://okj8snz5g.bkt.clouddn.com/blog/laji7.jpg)
+![](http://image.yaopig.com/blog/laji7.jpg)
 
 

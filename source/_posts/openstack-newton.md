@@ -355,7 +355,7 @@ keystone-manage bootstrap \
 openstack project list --os-username admin --os-project-name admin --os-user-domain-id default --os-project-domain-id default --os-identity-api-version 3 --os-auth-url http://controller1:5000 --os-password 123
 ```
 
-![](http://okj8snz5g.bkt.clouddn.com/blog/Jietu20170428-103005.jpg)
+![](http://image.yaopig.com/blog/Jietu20170428-103005.jpg)
 
 13 .创建admin用户环境，创建/root/admin-openrc文件并写入如下内容：
 
@@ -397,7 +397,7 @@ unset OS_TOKEN OS_URL
 openstack --os-auth-url http://controller1:35357/v3 --os-project-domain-name default --os-user-domain-name default --os-project-name admin --os-username admin token issue --os-password 123
 openstack --os-auth-url http://controller1:5000/v3 --os-project-domain-name default --os-user-domain-name default --os-project-name demo --os-username demo token issue --os-password 123
 ```
-![](http://okj8snz5g.bkt.clouddn.com/blog/%E9%AA%8C%E8%AF%81keystone.jpg)
+![](http://image.yaopig.com/blog/%E9%AA%8C%E8%AF%81keystone.jpg)
 
 ## 配置安装Glance
 
@@ -437,7 +437,7 @@ openstack endpoint create --region RegionOne image internal http://controller1:9
 openstack endpoint create --region RegionOne image admin http://controller1:9292
 ```
 
-![](http://okj8snz5g.bkt.clouddn.com/blog/GLANCE1-5.jpg)
+![](http://image.yaopig.com/blog/GLANCE1-5.jpg)
 
 6 .安装glance相关rpm包
 
@@ -599,7 +599,7 @@ glance image-create --name "CentOS7.1-x86_64" --file CentOS_7.1.qcow2 --disk-for
 ```
 
 - 查看镜像列表：`glance image-list`
-![](http://okj8snz5g.bkt.clouddn.com/blog/Jietu20170428-131022.jpg)
+![](http://image.yaopig.com/blog/Jietu20170428-131022.jpg)
 
 ## 配置安装nova
 
@@ -765,7 +765,7 @@ source /root/admin-openrc
 nova service-list
 openstack endpoint list //查看endpoint list
 ```
-![](http://okj8snz5g.bkt.clouddn.com/blog/Jietu20170428-133749.jpg)
+![](http://image.yaopig.com/blog/Jietu20170428-133749.jpg)
 
 
 ## 配置安装neutron

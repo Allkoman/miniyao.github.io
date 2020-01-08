@@ -472,7 +472,7 @@ border-left:1px solid red;
 - 因此一个元素实际宽度（盒子的宽度）=左边界+左边框+左填充+内容宽度+右填充+右边框+右边界。
 - 边界margin;边框border;填充podding;
 
-<div align="center">![](http://okj8snz5g.bkt.clouddn.com/blog/539fbb3a0001304305570259.jpg)</div>
+<div align="center">![](http://image.yaopig.com/blog/539fbb3a0001304305570259.jpg)</div>
 
 ---
 
@@ -658,7 +658,7 @@ table tr td,th{border:1px solid #000;}
 4、checked：当设置 checked="checked" 时，该选项被默认选中
 ```
 
-![](http://okj8snz5g.bkt.clouddn.com/blog/52e604590001ae4005270185.jpg)
+![](http://image.yaopig.com/blog/52e604590001ae4005270185.jpg)
 - 下拉列表也可以进行多选操作，在`<select>`标签中设置multiple="multiple"属性，就可以实现多选功能，在 windows 操作系统下，进行多选时按下Ctrl键同时进行单击（在 Mac下使用 Command +单击），可以选择多个选项。
 - 提交按钮`<input   type="submit"   value="提交">`
 - 重置按钮`<input type="reset" value="重置">`

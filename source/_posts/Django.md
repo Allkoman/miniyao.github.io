@@ -146,7 +146,7 @@ workon django
 pip list    #列出pip安装的软件
 ```
 - 发现9.0.1的warning如下
-![bug](http://okj8snz5g.bkt.clouddn.com/blog/virtualpipbug.png)
+![bug](http://image.yaopig.com/blog/virtualpipbug.png)
 - 解决办法为在当前virtualenv的目录，即我的是~/.virtualenv/django下新建文件pip.conf，写入:
 
 ```shell
@@ -154,19 +154,19 @@ pip list    #列出pip安装的软件
 format=columns
 ```
 - 解决后如下图：
-![solution](http://okj8snz5g.bkt.clouddn.com/blog/virtualenvbugsolution.png)
+![solution](http://image.yaopig.com/blog/virtualenvbugsolution.png)
 
 ---
 
 ## Pycharm Navicat
 ### Pycharm简介
 - 废话不多说上图：
-![pycharm](http://okj8snz5g.bkt.clouddn.com/blog/pycharm.png)
+![pycharm](http://image.yaopig.com/blog/pycharm.png)
 - pycharm是[jetbrains](https://www.jetbrains.com)旗下的一款python IDE，我也是刚入坑，据说口碑很不错。
 
 ### 新建Django项目
 - 注意`Interpreter`选择环境为我们自己的虚拟环境。下图提示没有django，可以直接下一步自动安装或手动pip安装。
-![django_create](http://okj8snz5g.bkt.clouddn.com/blog/pythondjangocreate.png)
+![django_create](http://image.yaopig.com/blog/pythondjangocreate.png)
 - 新建成功后，进入项目点击run，可以在`127.0.0.1:8000`看到默认的"it worded!"
 
 ---

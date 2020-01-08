@@ -20,7 +20,7 @@ permalink:
 ## 简介
 第一轮迭代采用阿里云debian 8系统作为服务器，域名为miniyao.net。使用postfix、dovecot、mysql配置安装邮箱服务器
 <div align=center>
-![mail_stt](http://okj8snz5g.bkt.clouddn.com/blog/mail_server.jpg)
+![mail_stt](http://image.yaopig.com/blog/mail_server.jpg)
 </div>
 
 
@@ -38,9 +38,9 @@ apt-get install postfix postfix-mysql dovecot-core dovecot-imapd dovecot-pop3d d
 - 安装过程中需要对postfix configuration进行配置，这里选择`Internet Site`选项，同时System mial name填写`mail.miniyao.net`
 - mysql安装过程需输入两遍密码，记住密码后序需要使用
 - 如下图所示
-![mysql](http://okj8snz5g.bkt.clouddn.com/blog/mysql.png)
-![postfix_internetsite](http://okj8snz5g.bkt.clouddn.com/blog/postfix_internetsite.png)
-![postfix_systemmailname](http://okj8snz5g.bkt.clouddn.com/blog/postfix_systemmailname.png)
+![mysql](http://image.yaopig.com/blog/mysql.png)
+![postfix_internetsite](http://image.yaopig.com/blog/postfix_internetsite.png)
+![postfix_systemmailname](http://image.yaopig.com/blog/postfix_systemmailname.png)
 
 ---
 ### Mysql配置
@@ -599,7 +599,7 @@ ssl_key = </etc/dovecot/private/example.pem
 ---
 ### 域名解析设置
 - 解析域名为邮箱服务器，经过学习资料及摸索，暂时我的邮箱服务器域名解析如下：
-![maildns](http://okj8snz5g.bkt.clouddn.com/blog/dnsmail.png)
+![maildns](http://image.yaopig.com/blog/dnsmail.png)
 
 ---
 ### 测试
@@ -708,7 +708,7 @@ phpinfo();
 ?>
 ```
 - 在浏览器端输入ip/info.php，查看到php版本信息等即可证明apache2加载php5成功。如下图：
-![APACHEPHP](http://okj8snz5g.bkt.clouddn.com/blog/apachephp.png)
+![APACHEPHP](http://image.yaopig.com/blog/apachephp.png)
 
 --- 
 
@@ -764,10 +764,10 @@ chown -R www-data:www-data .
 - 如果不修改granted项，会出现403禁止的错误，而如果不修改默认文件夹，亦可将rainloop拷贝到原本的默认文件夹下，apache2会自动解析该文件夹下的文件。
 - 重启apache2，并在浏览器端输入`ip/index.php`，这一文件为rainloop文件夹下php项目的入口文件，成功展示出内容。
 - 浏览器端输入`ip/?admin`，进入管理面板，修改语言为简体中文并将我们上文中imap,smtp及域名信息填入rainloop域名管理，点击测试成功后保存，从登录界面`(admin;12345)`登录邮箱进行收发邮件测试，通过测试。下面是图片展示：
-![mail1](http://okj8snz5g.bkt.clouddn.com/blog/xymail1.png)
-![mail2](http://okj8snz5g.bkt.clouddn.com/blog/xymail2.png)
-![mailtitle](http://okj8snz5g.bkt.clouddn.com/blog/xymailtitle.png)
-![maillangure](http://okj8snz5g.bkt.clouddn.com/blog/xymaillangure.png)
+![mail1](http://image.yaopig.com/blog/xymail1.png)
+![mail2](http://image.yaopig.com/blog/xymail2.png)
+![mailtitle](http://image.yaopig.com/blog/xymailtitle.png)
+![maillangure](http://image.yaopig.com/blog/xymaillangure.png)
 
 ---
 ### 通讯协议
